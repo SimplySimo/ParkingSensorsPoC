@@ -1,6 +1,8 @@
-﻿@model IEnumerable<PoCParkingSensors.Models.Data>
+﻿@using PoCParkingSensors.Models
+@model IEnumerable<Data>
 
-
+<h1>Search results</h1>
+<p>Number of free carspots = @ViewData["UnOccupiedBays"]</p>
 <table class="table">
     <tr>
         <th>
@@ -18,21 +20,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BayId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lon)
-        </td>
-    </tr>
-}
-
+    @foreach (Data item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BayId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lon)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { bayId = item.BayId, lat = item.Lat, lon = item.Lon, status = item.Status })
+            </td>
+        </tr>
+    }
 </table>

@@ -32,7 +32,6 @@ namespace PoCParkingSensors.DataAccess
             {
                 localData.Add(keyValue["bay_id"].ToString(), new Data
                 {
-
                     BayId = Convert.ToInt32(keyValue["bay_id"]),
                     Lat = Convert.ToDouble(keyValue["lat"]),
                     Lon = Convert.ToDouble(keyValue["lon"]),

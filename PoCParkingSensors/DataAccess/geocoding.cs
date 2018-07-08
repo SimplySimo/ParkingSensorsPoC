@@ -8,13 +8,13 @@ using PoCParkingSensors.Models;
 
 namespace PoCParkingSensors.DataAccess
 {
-    class Geocoding
+    public static class Geocoding
     {
-        private static string key = "AIzaSyDklNWhszRKRIj_KOFO_5-xGQs-CeoRdoI";
+        private const string key = "AIzaSyDklNWhszRKRIj_KOFO_5-xGQs-CeoRdoI";
 
         public static async Task<GeocodingModel.RootObject> GETAsync(double lat, double lng)
         {
-            GeocodingModel.RootObject root = new GeocodingModel.RootObject();
+            GeocodingModel.RootObject root;
             string requrstUrl = "https://maps.googleapis.com/maps/api/geocode/json?";
             string latlng = "latlng=" + lat + "," + lng;
             string keyString = "&key=" + key;
@@ -23,10 +23,9 @@ namespace PoCParkingSensors.DataAccess
 
             try
             {
-                HttpResponseMessage response = await request.GetAsync(requrstUrl + latlng + keyString);
+                HttpResponseMessage response = request.GetAsync(requrstUrl + latlng + keyString).Result;
                 string result = await response.Content.ReadAsStringAsync();
                 root = JsonConvert.DeserializeObject<GeocodingModel.RootObject>(result);
-
             }
             catch (WebException ex)
             {

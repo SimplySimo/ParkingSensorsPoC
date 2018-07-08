@@ -16,7 +16,7 @@ namespace PoCParkingSensors
             const string refNumber = "dtpv-d4pf";
             //extract data
             Dictionary<string, Data> data = Socrata.GetDataSet(refNumber, privateKey);
-            Random numberRandom = new Random();
+            new Random();
             // make it searchable
             string randomKey = data.Select(kv => kv.Key)
                 .OrderBy(k => Guid.NewGuid())

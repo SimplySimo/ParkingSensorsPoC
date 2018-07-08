@@ -6,6 +6,6 @@
         public string Status { set; get; }
         public double Lat { set; get; }
         public double Lon { set; get; }
-
+        public string Address { set; get; }
     }
 }

@@ -185,7 +185,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ParkingDetailsController.cs" />
-    <Compile Include="Controllers\ParkingSpotDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,11 +247,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\ParkingDetails\ParkingDetails.cshtml" />
     <Content Include="Views\ParkingDetails\ParkingListPartial.cshtml" />
-    <Content Include="Views\ParkingSpotDetail\ParkingSpotDetail.cshtml" />
+    <Content Include="Views\ParkingDetails\ParkingSpotDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ParkingSpotDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

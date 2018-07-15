@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoCParkingSensors", "PoCParkingSensors\PoCParkingSensors.csproj", "{8CD3B9D2-423B-41C6-925F-42D73E1B6C90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingSensors.Web", "ParkingSensors.Web\ParkingSensors.Web.csproj", "{60869EC9-25F4-4CEB-A6E0-094B775623BC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingSensors.Web.Tests", "ParkingSensors.Web.Tests\ParkingSensors.Web.Tests.csproj", "{9A6C0B05-9EBA-431C-BCD3-F538157C2794}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{8CD3B9D2-423B-41C6-925F-42D73E1B6C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CD3B9D2-423B-41C6-925F-42D73E1B6C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CD3B9D2-423B-41C6-925F-42D73E1B6C90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60869EC9-25F4-4CEB-A6E0-094B775623BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60869EC9-25F4-4CEB-A6E0-094B775623BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60869EC9-25F4-4CEB-A6E0-094B775623BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60869EC9-25F4-4CEB-A6E0-094B775623BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A6C0B05-9EBA-431C-BCD3-F538157C2794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A6C0B05-9EBA-431C-BCD3-F538157C2794}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A6C0B05-9EBA-431C-BCD3-F538157C2794}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A6C0B05-9EBA-431C-BCD3-F538157C2794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

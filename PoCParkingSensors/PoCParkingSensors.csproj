@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8CD3B9D2-423B-41C6-925F-42D73E1B6C90}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>PoCParkingSensors</RootNamespace>
     <AssemblyName>PoCParkingSensors</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

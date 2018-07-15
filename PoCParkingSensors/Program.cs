@@ -30,7 +30,16 @@ namespace PoCParkingSensors
 
             while (_status != null && !_status.ToLower().Equals("quit"))
             {
+                Console.WriteLine("options avaible");
+                Console.WriteLine("display all data");
+                Console.WriteLine("Convert to address (lat lon)");
                 _status = Console.ReadLine();
+
+                if (_status.ToLower().Contains("convert to address"))
+                {
+                    Console.WriteLine("options avaible");
+                    string latLon = Console.ReadLine();
+                }
             }
             //change lat lon to street address //google geo coding
 

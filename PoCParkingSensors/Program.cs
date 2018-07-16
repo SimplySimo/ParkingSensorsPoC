@@ -9,49 +9,64 @@ namespace PoCParkingSensors
     public class Program
     {
         private static string _status = "Start";
+        private const string PrivateKey = "H9Kf4H7aWIivdDgCHgYIauQyd";
+        private const string RefNumber = "dtpv-d4pf";
+        private static readonly Dictionary<string, Data> Data = Socrata.GetDataSet(RefNumber, PrivateKey);
 
         static void Main(string[] args)
         {
-            var privateKey = "H9Kf4H7aWIivdDgCHgYIauQyd";
-            const string refNumber = "dtpv-d4pf";
-            //extract data
-            Dictionary<string, Data> data = Socrata.GetDataSet(refNumber, privateKey);
-            new Random();
-            // make it searchable
-            string randomKey = data.Select(kv => kv.Key)
-                .OrderBy(k => Guid.NewGuid())
-                .Take(1)
-                .First();
-            Data pointToUse = data[randomKey];
-            GeocodingModel.Result geocodingResult = Geocoding.GETAsync(pointToUse.Lat, pointToUse.Lon).Result.results.First();
-
-            Console.WriteLine(geocodingResult.formatted_address);
-            Console.WriteLine(pointToUse.Status);
-
             while (_status != null && !_status.ToLower().Equals("quit"))
             {
-                Console.WriteLine("options avaible");
+                Console.WriteLine("----------options avaible--------------");
                 Console.WriteLine("display all data");
+                Console.WriteLine("display random");
                 Console.WriteLine("Convert to address (lat lon)");
+                Console.WriteLine("quit");
+                Console.WriteLine("");
                 _status = Console.ReadLine();
 
                 if (_status.ToLower().Contains("convert to address"))
                 {
-                    Console.WriteLine("options avaible");
+                    Console.WriteLine("please enter lat lon seperated by a space comma");
                     string latLon = Console.ReadLine();
+                    string[] output;
+
+                    if (latLon.Contains(','))
+                        output = latLon.Split(',');
+                    else if (latLon.Contains(' '))
+                        output = latLon.Split(' ');
+                    else
+                        throw new Exception("unable to read input");
+
+                    var results = Geocoding.GETAsync(Convert.ToDouble(output[0]), Convert.ToDouble(output[1])).Result.results.First();
+
+                    Console.WriteLine(results.formatted_address);
+                }
+                if (_status.ToLower().Contains("display all"))
+                {
+
+                    foreach (var entry in Data)
+                    {
+                        Console.WriteLine(entry.Value.BayId);
+                        Console.WriteLine(entry.Value.Status);
+                        Console.WriteLine(entry.Value.Lat);
+                        Console.WriteLine(entry.Value.Lon);
+                        Console.WriteLine(" ");
+                    }
+                }
+                if (_status.ToLower().Contains("random"))
+                {
+                    string randomKey = Data.Select(kv => kv.Key)
+                        .OrderBy(k => Guid.NewGuid())
+                        .Take(1)
+                        .First();
+                    Data pointToUse = Data[randomKey];
+                    GeocodingModel.Result geocodingResult = Geocoding.GETAsync(pointToUse.Lat, pointToUse.Lon).Result.results.First();
+
+                    Console.WriteLine(geocodingResult.formatted_address);
+                    Console.WriteLine(pointToUse.Status);
                 }
             }
-            //change lat lon to street address //google geo coding
-
-            //geocoding key AIzaSyCwaWfnfkZV3GOkiR6SeD9sIchKok2hIiA
-
-            //mvc website
-
-            //make the dots apear on the map 
-
-            //view searched on on map
         }
-
-
     }
 }

@@ -17,7 +17,7 @@ namespace PoCParkingSensors.DataAccess
 
             IEnumerable<Dictionary<string, object>> rows = dataset.GetRows(5000);
 
-            Console.WriteLine("Got {0} results. Dumping first results:", rows.Count());
+            Console.WriteLine("Got {0} results.", rows.Count());
 
             _dataSet = ExtractData(rows);
 
